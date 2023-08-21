@@ -2,6 +2,7 @@ package guru.qa.allure;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.exist;
@@ -17,6 +18,7 @@ public class StepsTest {
     private static final String NAME_ISSUE = "Hello! This is test issue";
 
     @Test
+    @DisplayName("Тест с использованием лямбды")
     public void testLambdaSteps() {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
@@ -44,6 +46,7 @@ public class StepsTest {
     }
 
     @Test
+    @DisplayName("Тест с использованием аннотации Шаг")
     public void testAnnotationStep() {
         SelenideLogger.addListener("allure", new AllureSelenide());
         Steps steps = new Steps();

@@ -2,6 +2,7 @@ package guru.qa.allure;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.exist;
@@ -13,6 +14,7 @@ import static org.openqa.selenium.By.linkText;
 public class SelenideListenerTest {
 
     @Test
+    @DisplayName("Тест с использованием Selenide с Listener")
     public void testIssueSearch() {
         SelenideLogger.addListener("allure", new AllureSelenide());
 

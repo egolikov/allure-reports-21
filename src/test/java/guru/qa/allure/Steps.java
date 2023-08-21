@@ -15,24 +15,24 @@ public class Steps {
         open("https://github.com");
     }
 
-    @Step("Ищем репозиторий {nameRepository}")
+    @Step("Поиск репозитория по наименованию {nameRepository}")
     public void searchForRepository(String nameRepository) {
         $(".search-input").click();
         $("#query-builder-test").sendKeys(nameRepository);
         $("#query-builder-test").submit();
     }
 
-    @Step("Кликаем по ссылке репозитория {nameRepository}")
+    @Step("Кликаем по ссылке найденного репозитория {nameRepository}")
     public void clickOnRepositoryLink(String nameRepository) {
         $(linkText(nameRepository)).click();
     }
 
-    @Step("Открываем таб Issues")
+    @Step("Открываем Issues")
     public void openIssues() {
         $("#issues-tab").click();
     }
 
-    @Step("Проверяем наличие Issue с номером {nameIssue}")
+    @Step("Проверяем наличие Issue с Наименованием {nameIssue}")
     public void shouldSeeIssueWithName(String nameIssue) {
         $(withText(nameIssue)).should(exist);
     }
