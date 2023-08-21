@@ -1,17 +1,16 @@
-package qa.guru.allure;
+package guru.qa.allure;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static org.openqa.selenium.By.linkText;
 
-public class SelenideTest {
+public class SelenideListenerTest {
 
     @Test
     public void testIssueSearch() {
@@ -19,13 +18,13 @@ public class SelenideTest {
 
         open("https://github.com");
 
-        $(".header-search-input").click();
-        $(".header-search-input").sendKeys("eroshenkoam/allure-example");
-        $(".header-search-input").submit();
+        $(".search-input").click();
 
-        $(linkText("eroshenkoam/allure-example")).click();
+        $("#query-builder-test").sendKeys("egolikov/allure-reports-21");
+        $("#query-builder-test").pressEnter();
+        $(linkText("egolikov/allure-reports-21")).click();
         $("#issues-tab").click();
-        $(withText("#80")).should(Condition.exist);
+        $(withText("Hello! This is test issue")).should(Condition.exist);
     }
 
 }
